@@ -1,47 +1,79 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>DriveMind - Your Car Just Got a Voice</title>
+    <link rel="icon" type="image/png" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DriveMind is the first diagnostics app made for everyday drivers — no dongles, no jargon, just answers. Join the waitlist for lifetime Pro access." />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="assets/index-DoFs5sed.css" />
-    <script type="module" src="assets/index-Ch6_v5Eu.js" defer></script>
+    
+    <!-- Primary Meta Tags -->
+    <title>DriveMind - Decode Your Car. No Hardware Required.</title>
+    <meta name="title" content="DriveMind - Decode Your Car. No Hardware Required." />
+    <meta name="description" content="Translate your car's warning lights into plain English with just your smartphone. No hardware, no jargon, no $200 diagnostic tools. Built for the 95% who never bought a scanner. Join the beta waitlist." />
+    <meta name="keywords" content="car diagnostics, OBD scanner, car warning lights, automotive AI, car repair, vehicle diagnostics, smartphone car scanner, plain English car diagnosis" />
+    <meta name="author" content="Alex Rodriguez, DriveMind" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://drivemind.app/" />
+    <meta property="og:title" content="DriveMind - Decode Your Car. No Hardware Required." />
+    <meta property="og:description" content="Translate your car's warning lights into plain English with just your smartphone. No hardware, no jargon, no $200 diagnostic tools. Built for the 95% who never bought a scanner." />
+    <meta property="og:image" content="https://drivemind.app/drivemind_ecosystem_enhanced.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://drivemind.app/" />
+    <meta property="twitter:title" content="DriveMind - Decode Your Car. No Hardware Required." />
+    <meta property="twitter:description" content="Translate your car's warning lights into plain English with just your smartphone. No hardware, no jargon, no $200 diagnostic tools. Built for the 95% who never bought a scanner." />
+    <meta property="twitter:image" content="https://drivemind.app/drivemind_ecosystem_enhanced.png" />
+    
+    <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "DriveMind",
-      "operatingSystem": "Android, iOS",
+      "description": "Smartphone app that translates car warning lights into plain English without requiring hardware",
+      "url": "https://drivemind.app",
       "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, Android",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/PreOrder"
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "132"
-      }
+      "creator": {
+        "@type": "Person",
+        "name": "Alex Rodriguez",
+        "jobTitle": "Founder & CEO",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "DriveMind"
+        }
+      },
+      "featureList": [
+        "Point phone at dashboard warning lights",
+        "Get instant plain-English diagnosis", 
+        "See exact repair cost estimates",
+        "Connect with trusted mechanics",
+        "No hardware required"
+      ]
     }
     </script>
+    
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="theme-color" content="#00D4AA" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="module" crossorigin src="/assets/index-DQ2-XWk7.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const smoothLinks = document.querySelectorAll("a[href^='#']");
-        smoothLinks.forEach(link => {
-          link.addEventListener("click", e => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute("href"));
-            if (target) target.scrollIntoView({ behavior: "smooth" });
-          });
-        });
-      });
-    </script>
   </body>
 </html>
+
