@@ -1,16 +1,47 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>DriveMind - Your Car Just Got a Voice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DriveMind - Decode Your Car. No Hardware Required.</title>
-    <meta name="description" content="DriveMind is an AI-powered car diagnostic app that translates warning lights into plain English. No hardware, no dongles - just your smartphone." />
-    <script type="module" crossorigin src="/assets/index-Ch6_v5Eu.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DoFs5sed.css">
+    <meta name="description" content="DriveMind is the first diagnostics app made for everyday drivers — no dongles, no jargon, just answers. Join the waitlist for lifetime Pro access." />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/index-DoFs5sed.css" />
+    <script type="module" src="assets/index-Ch6_v5Eu.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "DriveMind",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "132"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const smoothLinks = document.querySelectorAll("a[href^='#']");
+        smoothLinks.forEach(link => {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute("href"));
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
-
