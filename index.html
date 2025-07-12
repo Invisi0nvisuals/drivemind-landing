@@ -1677,30 +1677,33 @@
                                 const emailInput = this.querySelector('input[type="email"]');
                                 const email = emailInput.value;
 
-                                // Send to Aidbase
+                                const payload = {
+                                        event: 'beta-chatbot',
+                                        email: email,
+                                        source: 'drivemind.app',
+                                        tag: 'waitlist',
+                                        timestamp: new Date().toISOString()
+                                };
+
                                 try {
-                                        const res = await fetch('https://api.aidbase.ai/v1/contacts', {
+                                        const res = await fetch('https://api.drivemind.app/aidbase/beta-chatbot', {
                                                 method: 'POST',
                                                 headers: {
                                                         'Content-Type': 'application/json',
                                                         'Authorization': 'Bearer absk-UBTlBowcskRqcQSizQUTeV9d1GZlq0aq'
                                                 },
-                                                body: JSON.stringify({
-                                                        email: email,
-                                                        tags: ['drivemind_beta'],
-                                                        source: 'DriveMind Landing Page'
-                                                })
+                                                body: JSON.stringify(payload)
                                         });
 
                                         if (res.ok) {
                                                 emailInput.value = '';
                                                 document.getElementById('formSuccess').style.display = 'block';
-                                                console.log('Email sent to Aidbase successfully.');
+                                                console.log('Email sent to Aidbase webhook successfully.');
                                         } else {
-                                                console.error('Aidbase error:', await res.text());
+                                                console.error('Aidbase webhook error:', await res.text());
                                         }
                                 } catch (error) {
-                                        console.error('Failed to connect to Aidbase:', error);
+                                        console.error('Failed to connect to Aidbase webhook:', error);
                                 }
                         });
 
