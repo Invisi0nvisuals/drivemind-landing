@@ -1152,23 +1152,25 @@
 			::-webkit-scrollbar-thumb:hover {
 				background: #0d9488;
 			}
-                        h1,h2,h3,h4,h5,h6{margin-top:2rem;margin-bottom:1rem;}
-                        p{margin-bottom:1rem;line-height:1.6;}
+                        h1,h2,h3{margin-top:2.5rem;margin-bottom:1rem;}
+                        p{margin-bottom:1rem;line-height:1.65;}
                         section{padding-top:4rem;padding-bottom:4rem;}
 		</style>
 	</head>
 	<body>
 		<!-- Sticky Header -->
-                <header class="header" id="stickyHeader">
-                        <div class="header-content container flex justify-between items-center py-4">
-                                <a href="/" class="logo text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">DriveMind</a>
-                                <nav class="hidden md:flex gap-6 text-sm text-white">
-                                        <a href="#how-it-works" class="hover:text-teal-300">How It Works</a>
-                                        <a href="#demo" class="hover:text-teal-300">Demo</a>
-                                        <a href="#cta" class="hover:text-teal-300">Join Beta</a>
-                                </nav>
-                        </div>
-                </header>
+                <header class="header fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-teal-500/20" id="stickyHeader">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-2xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+      DriveMind
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm text-white">
+      <a href="/#how-it-works" class="hover:text-teal-300">How It Works</a>
+      <a href="/#demo" class="hover:text-teal-300">Demo</a>
+      <a href="/#cta" class="hover:text-teal-300">Join Beta</a>
+    </nav>
+  </div>
+</header>
 
 		<!-- Hero Section -->
 		<section class="hero">
@@ -1306,9 +1308,9 @@
 		</section>
 
 		<!-- Solution Section -->
-		<section class="section">
-			<div class="container">
-				<h2 class="section-title">Finally. A Solution That Makes Sense.</h2>
+		<section class="section" id="how-it-works">
+                        <div class="container">
+                                <h2 class="section-title">Finally. A Solution That Makes Sense.</h2>
 				<p class="section-subtitle">
 					No hardware. No jargon. No $200 diagnostic tools. Just point, scan, understand.
 				</p>
@@ -1356,9 +1358,9 @@
 		</section>
 
 		<!-- How It Works Section -->
-		<section class="section">
-			<div class="container">
-				<h2 class="section-title">Stupid Simple. Crazy Powerful.</h2>
+		<section class="section" id="demo">
+                        <div class="container">
+                                <h2 class="section-title">Stupid Simple. Crazy Powerful.</h2>
 				<p class="section-subtitle">Four steps to automotive enlightenment</p>
 
 				<div class="steps-grid">
@@ -1393,13 +1395,13 @@
 				</div>
 
                 <div style="text-align: center; margin-top: 40px;">
-                        <a href="#demo" class="btn btn-secondary">Try It First</a>
+                        <a href="#demo-video" class="btn btn-secondary">Try It First</a>
                 </div>
             </div>
         </section>
 
         <!-- Demo Section -->
-        <section class="section" id="demo">
+        <section class="section" id="demo-video">
             <div class="container">
                 <div class="demo-video">
                     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="DriveMind Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
