@@ -6,17 +6,32 @@
     <title>Privacy Policy - DriveMind</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="assets/index-DoFs5sed.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            max-width: 800px;
-            margin: auto;
-            line-height: 1.6;
-        }
-    </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#e2e8f0;line-height:1.6;overflow-x:hidden;}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+.header{position:fixed;top:0;left:0;right:0;background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);z-index:1000;padding:15px 0;border-bottom:1px solid rgba(20,184,166,0.2);opacity:0;transform:translateY(-100%);transition:all 0.3s ease;}
+.header.visible{opacity:1;transform:translateY(0);}
+.header-content{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px;}
+.logo{font-size:24px;font-weight:700;background:linear-gradient(135deg,#14b8a6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.btn{padding:15px 30px;border-radius:12px;font-size:1.1rem;font-weight:600;text-decoration:none;transition:all 0.3s ease;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary{background:linear-gradient(135deg,#14b8a6,#06b6d4);color:#fff;box-shadow:0 10px 30px rgba(20,184,166,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(20,184,166,0.4);}
+.footer{background:rgba(15,23,42,0.8);border-top:1px solid rgba(20,184,166,0.2);padding:40px 0;text-align:center;}
+.footer-logo{font-size:2rem;font-weight:700;background:linear-gradient(135deg,#14b8a6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;}
+.footer-tagline{color:#94a3b8;margin-bottom:30px;font-size:1rem;}
+.footer-dm{width:40px;height:40px;background:#14b8a6;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1rem;margin-bottom:20px;}
+.footer-legal a{font-size:0.875rem;color:#9CA3AF;text-decoration:underline;}
+</style>
 </head>
 <body>
+<header class="header" id="stickyHeader">
+  <div class="header-content">
+    <div class="logo">DM</div>
+    <a href="/#cta" class="btn btn-primary">Join Beta Waitlist</a>
+  </div>
+</header>
+<main class="container" style="padding-top:120px;">
 <h1>📄 Privacy Policy for DriveMind</h1>
 <p><strong>Effective Date:</strong> July 11, 2025<br>
 <strong>Last Updated:</strong> July 11, 2025</p>
@@ -100,5 +115,29 @@
 <h2>📮 11. Contact Us</h2>
 <p><strong>DriveMind Support</strong><br>
 📧 <a href="mailto:support@drivemind.app">support@drivemind.app</a></p>
+<script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+<ab-create-ticket ticketFormID="CIyPrYw0lkslBuWEXH67p">
+  <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+    Need Help? Submit a Ticket
+  </button>
+</ab-create-ticket>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">DriveMind</div>
+    <p class="footer-tagline">Decode Your Car. No Hardware Required.</p>
+    <div class="footer-dm">DM</div>
+  </div>
+  <div class="footer-legal">
+    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',function(){const h=document.getElementById('stickyHeader');if(window.scrollY>100){h.classList.add('visible');}else{h.classList.remove('visible');}});
+</script>
+<script>
+  AIDBASE_CHATBOT_ID = 'HUHfTUfsyoXgIbhBdGjHj';
+</script>
+<script async type="text/javascript" src="https://client.aidbase.ai/chat.ab.js"></script>
 </body>
 </html>
