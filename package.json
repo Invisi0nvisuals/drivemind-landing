@@ -1,0 +1,17 @@
+{
+  "name": "drivemind-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/aidbase-lead.js",
+  "scripts": {
+    "start": "node server/aidbase-lead.js",
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
