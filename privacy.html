@@ -26,16 +26,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubunt
     p{margin-bottom:1rem;line-height:1.6;}
     section{padding-top:4rem;padding-bottom:4rem;}
 </style>
+<link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-<header class="header" id="stickyHeader">
-  <div class="header-content container flex justify-between items-center py-4">
-    <a href="/" class="logo text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">DriveMind</a>
-    <nav class="hidden md:flex gap-6 text-sm text-white">
-      <a href="#how-it-works" class="hover:text-teal-300">How It Works</a>
-      <a href="#demo" class="hover:text-teal-300">Demo</a>
-      <a href="#cta" class="hover:text-teal-300">Join Beta</a>
+<header class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo">Drive<span>Mind</span></a>
+    <nav class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#demo">Demo</a>
+      <a href="#join">Join Beta</a>
     </nav>
+    <button class="hamburger" onclick="toggleMenu()">
+      ☰
+    </button>
+  </div>
+  <div id="mobile-menu" class="mobile-nav hidden">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#demo">Demo</a>
+    <a href="#join">Join Beta</a>
   </div>
 </header>
 <main class="container" style="padding-top:120px;">
@@ -140,5 +149,6 @@ window.addEventListener('scroll',function(){const h=document.getElementById('sti
   AIDBASE_CHATBOT_ID = 'HUHfTUfsyoXgIbhBdGjHj';
 </script>
 <script async type="text/javascript" src="https://client.aidbase.ai/chat.ab.js"></script>
+<script src="navbar.js"></script>
 </body>
 </html>
