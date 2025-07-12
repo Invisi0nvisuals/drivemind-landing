@@ -574,11 +574,30 @@
 				margin-bottom: 15px;
 			}
 
-			.step-card .step-description {
-				text-align: center;
-			}
+.step-card .step-description {
+        text-align: center;
+}
 
-			/* Ecosystem */
+                        /* Demo Section */
+                        .demo-video {
+                                position: relative;
+                                padding-bottom: 56.25%;
+                                height: 0;
+                                overflow: hidden;
+                                border-radius: 16px;
+                                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                                margin-bottom: 40px;
+                        }
+
+                        .demo-video iframe {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                        }
+
+                        /* Ecosystem */
 			.ecosystem-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1021,6 +1040,12 @@
 				font-size: 1rem;
 				margin-bottom: 20px;
 			}
+                        .footer-legal a {
+                                font-size: 0.875rem;
+                                color: #9CA3AF;
+                                text-decoration: underline;
+                        }
+
 
 			/* Responsive Design */
 			@media (max-width: 768px) {
@@ -1360,14 +1385,23 @@
 					</div>
 				</div>
 
-				<div style="text-align: center; margin-top: 40px;">
-					<a href="#demo" class="btn btn-secondary">Try It First</a>
-				</div>
-			</div>
-		</section>
+                <div style="text-align: center; margin-top: 40px;">
+                        <a href="#demo" class="btn btn-secondary">Try It First</a>
+                </div>
+            </div>
+        </section>
 
-		<!-- Ecosystem Section -->
-		<section class="section">
+        <!-- Demo Section -->
+        <section class="section" id="demo">
+            <div class="container">
+                <div class="demo-video">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="DriveMind Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem Section -->
+        <section class="section">
 			<div class="container">
 				<h2 class="section-title">Everyone Wins When Trust Wins</h2>
 				<p class="section-subtitle">
@@ -1596,7 +1630,12 @@
 				<p class="footer-tagline">Decode Your Car. No Hardware Required.</p>
 				<div class="footer-dm">DM</div>
 			</div>
-		</footer>
+        <div class="footer-legal">
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                        Privacy Policy
+                </a>
+        </div>
+</footer>
 
 		<script>
 			// Sticky header functionality
@@ -1671,6 +1710,10 @@
   			}
 			})
 		</script>
+<script>
+  AIDBASE_CHATBOT_ID = 'HUHfTUfsyoXgIbhBdGjHj';
+</script>
+<script async type="text/javascript" src="https://client.aidbase.ai/chat.ab.js"></script>
 	</body>
 </html>
 
