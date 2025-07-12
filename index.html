@@ -1670,17 +1670,39 @@
 				});
 			});
 
-			// Form submission
-			document.getElementById('betaForm').addEventListener('submit', function(e) {
-				e.preventDefault();
-				const email = this.querySelector('input[type="email"]').value;
-				
-				// Simulate form submission
-				setTimeout(() => {
-					document.getElementById('formSuccess').style.display = 'block';
-					this.querySelector('input[type="email"]').value = '';
-				}, 500);
-			});
+                        // Form submission
+                        document.getElementById('betaForm').addEventListener('submit', async function (e) {
+                                e.preventDefault();
+
+                                const emailInput = this.querySelector('input[type="email"]');
+                                const email = emailInput.value;
+
+                                const payload = {
+                                        source: 'DriveMind Beta Chatbot',
+                                        email: email,
+                                        timestamp: new Date().toISOString()
+                                };
+
+                                try {
+                                        const res = await fetch('https://api.drivemind.app/webhooks/aidbase-lead', {
+                                                method: 'POST',
+                                                headers: {
+                                                        'Content-Type': 'application/json'
+                                                },
+                                                body: JSON.stringify(payload)
+                                        });
+
+                                        if (res.ok) {
+                                                emailInput.value = '';
+                                                document.getElementById('formSuccess').style.display = 'block';
+                                                console.log('Lead sent to DriveMind webhook successfully.');
+                                        } else {
+                                                console.error('DriveMind webhook error:', await res.text());
+                                        }
+                                } catch (error) {
+                                        console.error('Failed to connect to DriveMind webhook:', error);
+                                }
+                        });
 
 			// Fade in animation on scroll
 			const observerOptions = {
