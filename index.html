@@ -1152,16 +1152,23 @@
 			::-webkit-scrollbar-thumb:hover {
 				background: #0d9488;
 			}
+                        h1,h2,h3,h4,h5,h6{margin-top:2rem;margin-bottom:1rem;}
+                        p{margin-bottom:1rem;line-height:1.6;}
+                        section{padding-top:4rem;padding-bottom:4rem;}
 		</style>
 	</head>
 	<body>
 		<!-- Sticky Header -->
-		<header class="header" id="stickyHeader">
-			<div class="header-content">
-				<div class="logo">DM</div>
-				<a href="#cta" class="btn btn-primary">Join Beta Waitlist</a>
-			</div>
-		</header>
+                <header class="header" id="stickyHeader">
+                        <div class="header-content container flex justify-between items-center py-4">
+                                <a href="/" class="logo text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">DriveMind</a>
+                                <nav class="hidden md:flex gap-6 text-sm text-white">
+                                        <a href="#how-it-works" class="hover:text-teal-300">How It Works</a>
+                                        <a href="#demo" class="hover:text-teal-300">Demo</a>
+                                        <a href="#cta" class="hover:text-teal-300">Join Beta</a>
+                                </nav>
+                        </div>
+                </header>
 
 		<!-- Hero Section -->
 		<section class="hero">
@@ -1624,18 +1631,18 @@
 		</section>
 
 		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<div class="footer-logo">DriveMind</div>
-				<p class="footer-tagline">Decode Your Car. No Hardware Required.</p>
-				<div class="footer-dm">DM</div>
-			</div>
-        <div class="footer-legal">
-                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
-                        Privacy Policy
-                </a>
-        </div>
-</footer>
+                <footer class="footer bg-slate-900 text-gray-400 py-10 border-t border-teal-500/20 text-center text-sm">
+                  <div class="container mx-auto px-4">
+                    <div class="footer-logo text-2xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent mb-4">
+                      DriveMind
+                    </div>
+                    <p class="footer-tagline text-gray-500 mb-4 italic">Decode your dashboard. No hardware required.</p>
+                    <div class="footer-links space-x-4">
+                      <a href="/privacy.html" class="underline hover:text-white">Privacy Policy</a>
+                      <a href="/terms.html" class="underline hover:text-white">Terms & Conditions</a>
+                    </div>
+                  </div>
+                </footer>
 
 		<script>
 			// Sticky header functionality
