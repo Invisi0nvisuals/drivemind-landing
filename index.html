@@ -1607,49 +1607,54 @@
 
                                 <!-- Aidbase Waitlist Form Integration -->
                                 <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
-                                <div class="w-full max-w-xl mx-auto mt-10 px-4 sm:px-0 text-white overflow-x-hidden">
-                                  <div class="bg-[#0f1e2e]/80 p-6 rounded-xl shadow-lg">
-                                    <h2 class="text-2xl font-bold mb-2 text-center">Sign Up for Early Access</h2>
-                                    <p class="text-sm mb-4 text-center">
-                                      We’re building something for everyday drivers — not mechanics. <br/>
-                                      Drop your email and we’ll let you know the moment DriveMind is ready.
-                                    </p>
+                                <section class="w-full px-6 md:px-0 max-w-3xl mx-auto mt-12 text-white">
+                                  <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+                                    Sign Up for Early Access
+                                  </h2>
+                                  <p class="text-lg md:text-xl text-center mb-8 text-gray-300">
+                                    We're building something for everyday drivers — not mechanics. Drop your email and we’ll let you know the moment DriveMind is ready.
+                                    <span class="block mt-2 font-semibold">First 1,000 testers get Pro features — free for life.</span>
+                                  </p>
 
-                                    <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
-                                      <form class="space-y-4">
-                                        <input
-                                          type="email"
-                                          name="email"
-                                          placeholder="Email"
-                                          class="w-full px-4 py-2 bg-[#1a2c3d] border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                                          required
-                                        />
-                                        <textarea
-                                          name="comment"
-                                          placeholder="Any thoughts or feedback? (Optional)"
-                                          class="w-full px-4 py-2 bg-[#1a2c3d] border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                                          rows="3"
-                                        ></textarea>
-                                        <button
-                                          type="submit"
-                                          class="w-full bg-cyan-500 hover:bg-cyan-600 transition-all text-white font-semibold py-2 px-4 rounded-md"
-                                        >
-                                          Join Beta Waitlist
-                                        </button>
+                                  <div class="bg-[#0B1E2D] p-6 rounded-2xl shadow-xl w-full">
+                                    <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="ID_OF_USER">
+                                      <form class="space-y-6" onsubmit="event.preventDefault();">
+                                        <div>
+                                          <label for="email" class="block text-sm font-semibold text-white mb-2">Email <span class="text-red-500">*</span></label>
+                                          <input type="email" id="email" required
+                                            class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                            placeholder="you@example.com">
+                                        </div>
+
+                                        <div>
+                                          <label for="feedback" class="block text-sm font-medium text-white mb-2">Any thoughts or feedback? (Optional)</label>
+                                          <textarea id="feedback" rows="3"
+                                            class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                            placeholder="Let us know if you're joining the waitlist or anything else."></textarea>
+                                        </div>
+
+                                        <div class="text-center">
+                                          <button type="submit"
+                                            class="bg-teal-500 hover:bg-teal-600 text-white font-semibold px-6 py-3 rounded-full transition duration-200">
+                                            Join Beta Waitlist
+                                          </button>
+                                        </div>
                                       </form>
                                     </ab-create-ticket>
                                   </div>
-                                  <div id="waitlist-success" class="hidden mt-4 text-green-400 text-center font-medium">
-                                    ✅ You’ve been added to the waitlist!
-                                  </div>
+                                </section>
+
+                                <div id="waitlist-success" class="hidden mt-4 text-green-400 text-center font-medium">
+                                  ✅ You’ve been added to the waitlist!
                                 </div>
+
                                 <script>
                                   document.addEventListener('DOMContentLoaded', function () {
                                     const ticketEl = document.querySelector('ab-create-ticket');
                                     if (ticketEl) {
                                       ticketEl.addEventListener('ab:ticket-created', function () {
-                                        const emailField = ticketEl.querySelector('input[name="email"]');
-                                        const commentField = ticketEl.querySelector('textarea[name="comment"]');
+                                        const emailField = ticketEl.querySelector('#email');
+                                        const commentField = ticketEl.querySelector('#feedback');
                                         if (emailField) emailField.value = '';
                                         if (commentField) commentField.value = '';
                                         const success = document.getElementById('waitlist-success');
