@@ -1223,35 +1223,6 @@
 				</div>
                         </div>
                 </section>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-                    const ticketComponent = document.querySelector('ab-create-ticket');
-                    const successMsg = document.getElementById('waitlist-success');
-
-                    if (ticketComponent && successMsg) {
-                      ticketComponent.addEventListener('ab:ticket-created', function () {
-                        const emailInput = ticketComponent.querySelector('#email');
-                        const commentInput = ticketComponent.querySelector('#feedback');
-
-                        if (emailInput) emailInput.value = '';
-                        if (commentInput) commentInput.value = '';
-
-                        successMsg.classList.remove('hidden');
-                        setTimeout(() => {
-                          successMsg.classList.add('opacity-100');
-                        }, 10);
-
-                        setTimeout(() => {
-                          successMsg.classList.remove('opacity-100');
-                          setTimeout(() => {
-                            successMsg.classList.add('hidden');
-                          }, 500);
-                        }, 5000);
-                      });
-                    }
-                  });
-                </script>
-
 		<!-- Problem Section -->
                 <section class="section">
 			<div class="container">
@@ -1639,89 +1610,77 @@
 		</section>
 
 		<!-- CTA Section -->
-               <section class="cta-section" id="join-beta">
-                        <div class="px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-white">
-                                <div class="max-w-3xl mx-auto text-center">
-                                        <h2 class="text-4xl font-bold md:text-5xl leading-tight mb-4">Be Among the First<br>To Test DriveMind</h2>
-                                        <p class="text-lg md:text-xl text-gray-300 mb-10">
-                                                Join the exclusive beta and help shape the future of car diagnostics.<br class="hidden sm:block" />
-                                                <span class="block mt-2">First 1,000 testers get lifetime Pro access — full features, forever, for free.</span>
-                                        </p>
-                                </div>
+<section class="cta-section py-20 bg-gray-900 text-white text-center" id="join-beta">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4">Be Among the First<br>To Test DriveMind</h2>
+    <p class="text-lg mb-6 max-w-2xl mx-auto">
+      Join the exclusive beta and help shape the future of car diagnostics.<br>
+      First 1,000 testers get lifetime Pro access — full features, forever, for free.
+    </p>
+    <h3 class="text-xl font-semibold mt-6 mb-2">Sign Up for Early Access</h3>
+    <p class="text-base mb-6 max-w-xl mx-auto">
+      We’re building something for everyday drivers — not mechanics. Drop your email and we’ll let you know when DriveMind is ready.
+    </p>
+    <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+    <div class="max-w-xl mx-auto">
+      <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+        <form class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-4">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email * you@example.com"
+            required
+            class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          />
+          <textarea
+            name="message"
+            placeholder="Any thoughts or feedback? (Optional)"
+            rows="3"
+            class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full py-3 rounded-md bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold hover:opacity-90 transition"
+          >
+            Join Beta Waitlist
+          </button>
+        </form>
+      </ab-create-ticket>
+    </div>
+  </div>
+  <div class="cta-benefits">
+    <div class="cta-benefit">
+      <span class="cta-benefit-icon">🚀</span>
+      <h3 class="cta-benefit-title">First Access</h3>
+      <p class="cta-benefit-description">Be the first to test new features</p>
+    </div>
+    <div class="cta-benefit">
+      <span class="cta-benefit-icon">💎</span>
+      <h3 class="cta-benefit-title">Lifetime Pro</h3>
+      <p class="cta-benefit-description">Free Pro features for life</p>
+    </div>
+    <div class="cta-benefit">
+      <span class="cta-benefit-icon">🎯</span>
+      <h3 class="cta-benefit-title">Shape the Future</h3>
+      <p class="cta-benefit-description">Your feedback drives development</p>
+    </div>
+  </div>
+  <div class="tagline-footer">
+    Built in 72 hours with AI-native tools.<br>
+    First to market, designed to scale, built to exit.
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const ticketEl = document.querySelector("ab-create-ticket");
+    if (ticketEl) {
+      ticketEl.addEventListener("ab:ticket-created", () => {
+        alert("🎉 You're on the waitlist! Thanks for signing up.");
+      });
+    }
+  });
+</script>
 
-                                <div class="bg-[#112233] rounded-2xl shadow-xl max-w-xl mx-auto p-6 md:p-8">
-                                        <h3 class="text-2xl font-semibold text-center mb-4">Sign Up for Early Access</h3>
-                                        <p class="text-sm text-center text-gray-400 mb-6">
-                                                We’re building something for everyday drivers — not mechanics. Drop your email and we’ll let you know when DriveMind is ready.
-                                        </p>
-
-                                        <!-- Aidbase Custom Element -->
-                                        <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
-                                        <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
-                                                <form class="space-y-5" onsubmit="event.preventDefault();">
-                                                        <div>
-                                                                <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email <span class="text-red-500">*</span></label>
-                                                                <input
-                                                                        type="email"
-                                                                        id="email"
-                                                                        name="email"
-                                                                        required
-                                                                        class="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#1a2c3d] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200"
-                                                                        placeholder="you@example.com"
-                                                                />
-                                                        </div>
-                                                        <div>
-                                                                <label for="feedback" class="block text-sm font-medium mb-2 text-gray-300">Any thoughts or feedback? (Optional)</label>
-                                                                <textarea
-                                                                        id="feedback"
-                                                                        name="comment"
-                                                                        rows="3"
-                                                                        class="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#1a2c3d] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200"
-                                                                        placeholder="Let us know what you're excited about..."
-                                                                ></textarea>
-                                                        </div>
-                                                        <div class="text-center pt-2">
-                                                                <button
-                                                                        type="submit"
-                                                                        class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105"
-                                                                >
-                                                                        Join Beta Waitlist
-                                                                </button>
-                                                        </div>
-                                                </form>
-                                        </ab-create-ticket>
-
-                                        <div id="waitlist-success" class="hidden opacity-0 transition-opacity duration-500 text-green-400 text-center font-semibold mt-6">
-                                                ✅ You’ve been added to the waitlist! We'll be in touch soon.
-                                        </div>
-                                </div>
-
-                        </div>
-
-				<div class="cta-benefits">
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">🚀</span>
-						<h3 class="cta-benefit-title">First Access</h3>
-						<p class="cta-benefit-description">Be the first to test new features</p>
-					</div>
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">💎</span>
-						<h3 class="cta-benefit-title">Lifetime Pro</h3>
-						<p class="cta-benefit-description">Free Pro features for life</p>
-					</div>
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">🎯</span>
-						<h3 class="cta-benefit-title">Shape the Future</h3>
-						<p class="cta-benefit-description">Your feedback drives development</p>
-					</div>
-				</div>
-
-				<div class="tagline-footer">
-					Built in 72 hours with AI-native tools.<br>
-					First to market, designed to scale, built to exit.
-				</div>
-			</div>
-		</section>
 
 		<!-- Footer -->
                 <footer class="footer bg-slate-900 text-gray-400 py-10 border-t border-teal-500/20 text-center text-sm">
