@@ -1605,15 +1605,47 @@
 					Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
 				</p>
 
-                                <form class="cta-form" id="betaWaitlistForm">
+                                <!-- Aidbase Waitlist Form Integration -->
+                                <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+                                <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+                                  <form class="cta-form" onsubmit="event.preventDefault();">
                                         <div class="form-group">
-                                                <input type="email" class="form-input" placeholder="Enter your email" required id="email" name="email">
-						<button type="submit" class="form-submit">Join Beta Waitlist</button>
-					</div>
-					<div class="form-success" id="formSuccess">
-						🎉 You're in! Check your email for next steps.
-					</div>
-				</form>
+                                                <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                                        </div>
+                                        <div class="form-group">
+                                                <textarea id="feedback" name="comment" class="form-input" rows="3" placeholder="Any thoughts or feedback? (Optional)"></textarea>
+                                        </div>
+                                        <button type="submit" class="form-submit">Join Beta Waitlist</button>
+                                        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">✅ You’ve been added to the waitlist!</div>
+                                  </form>
+                                </ab-create-ticket>
+
+                                <script>
+                                  document.addEventListener('DOMContentLoaded', function () {
+                                    const ticketEl = document.querySelector('ab-create-ticket');
+                                    if (ticketEl) {
+                                      ticketEl.addEventListener('ab:ticket-created', function () {
+                                        const emailField = ticketEl.querySelector('#email');
+                                        const commentField = ticketEl.querySelector('#feedback');
+                                        if (emailField) emailField.value = '';
+                                        if (commentField) commentField.value = '';
+                                        const success = document.getElementById('waitlist-success');
+                                        if (success) {
+                                          success.style.display = 'block';
+                                          success.classList.remove('hidden', 'opacity-0');
+                                          success.classList.add('opacity-100');
+                                          setTimeout(() => {
+                                            success.classList.remove('opacity-100');
+                                            success.classList.add('opacity-0');
+                                            setTimeout(() => {
+                                              success.classList.add('hidden');
+                                            }, 300);
+                                          }, 4000);
+                                        }
+                                      });
+                                    }
+                                  });
+                                </script>
 
 				<div class="cta-benefits">
 					<div class="cta-benefit">
@@ -1668,29 +1700,9 @@
 						});
 					}
 				});
-			});
-
-                        // Form submission
-                        document.querySelector('#betaWaitlistForm').addEventListener('submit', async function (e) {
-                          e.preventDefault();
-
-                          const email = document.querySelector('#email').value;
-
-                          await fetch('https://hook.us2.make.com/bsg8xhduws6uynabp249kxpyudvp2dxb', {
-                            method: 'POST',
-                            headers: {
-                              'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                              email: email,
-                              submitted_at: new Date().toISOString()
-                            })
-                          });
-
-                          alert('✅ You\u2019re on the DriveMind waitlist! We\u2019ll be in touch soon.');
                         });
 
-			// Fade in animation on scroll
+                        // Fade in animation on scroll
 			const observerOptions = {
 				threshold: 0.1,
 				rootMargin: '0px 0px -50px 0px'
