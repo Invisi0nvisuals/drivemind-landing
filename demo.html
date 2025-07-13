@@ -34,40 +34,59 @@
     <a href="/assets/DriveMind_Investor_Deck.pdf" target="_blank" class="inline-block bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full">Download Investor Deck</a>
 
     <!-- Waitlist Form (reused) -->
-    <section id="join-beta" class="mt-12 flex justify-center">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold mb-4 leading-snug">Be Among the First<br>To Test DriveMind</h2>
-        <p class="text-lg mb-8 max-w-2xl mx-auto">
-          Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
+    <section id="join-beta" class="px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-bold md:text-5xl leading-tight mb-4">Be Among the First<br>To Test DriveMind</h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-10">
+          Join the exclusive beta and help shape the future of car diagnostics.<br class="hidden sm:block" />
+          <span class="block mt-2">First 1,000 testers get lifetime Pro access — full features, forever, for free.</span>
+        </p>
+      </div>
+
+      <div class="bg-[#112233] rounded-2xl shadow-xl max-w-xl mx-auto p-6 md:p-8">
+        <h3 class="text-2xl font-semibold text-center mb-4">Sign Up for Early Access</h3>
+        <p class="text-sm text-center text-gray-400 mb-6">
+          We’re building something for everyday drivers — not mechanics. Drop your email and we’ll let you know when DriveMind is ready.
         </p>
 
-        <!-- Aidbase Waitlist Form Integration -->
+        <!-- Aidbase Custom Element -->
         <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
-
-        <div class="flex justify-center">
-          <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
-            <form class="w-full max-w-md bg-gray-800 p-6 rounded-xl shadow-lg space-y-4">
+        <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+          <form class="space-y-5" onsubmit="event.preventDefault();">
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email <span class="text-red-500">*</span></label>
               <input
                 type="email"
-                placeholder="Enter your email"
+                id="email"
                 name="email"
                 required
-                class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                class="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#1a2c3d] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200"
+                placeholder="you@example.com"
               />
+            </div>
+            <div>
+              <label for="feedback" class="block text-sm font-medium mb-2 text-gray-300">Any thoughts or feedback? (Optional)</label>
               <textarea
-                placeholder="Any thoughts or feedback? (Optional)"
-                name="message"
+                id="feedback"
+                name="comment"
                 rows="3"
-                class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                class="w-full px-4 py-3 rounded-lg border border-gray-600 bg-[#1a2c3d] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-200"
+                placeholder="Let us know what you're excited about..."
               ></textarea>
+            </div>
+            <div class="text-center pt-2">
               <button
                 type="submit"
-                class="w-full py-3 rounded-md bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold hover:opacity-90 transition"
+                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105"
               >
                 Join Beta Waitlist
               </button>
-            </form>
-          </ab-create-ticket>
+            </div>
+          </form>
+        </ab-create-ticket>
+
+        <div id="waitlist-success" class="hidden opacity-0 transition-opacity duration-500 text-green-400 text-center font-semibold mt-6">
+          ✅ You’ve been added to the waitlist! We'll be in touch soon.
         </div>
       </div>
     </section>
@@ -84,11 +103,29 @@
 
   <script src="navbar.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const ticketEl = document.querySelector('ab-create-ticket');
-      if (ticketEl) {
-        ticketEl.addEventListener('ab:ticket-created', function () {
-          alert("🎉 You're on the waitlist! Thanks for joining.");
+    document.addEventListener('DOMContentLoaded', function () {
+      const ticketComponent = document.querySelector('ab-create-ticket');
+      const successMsg = document.getElementById('waitlist-success');
+
+      if (ticketComponent && successMsg) {
+        ticketComponent.addEventListener('ab:ticket-created', function () {
+          const emailInput = ticketComponent.querySelector('#email');
+          const commentInput = ticketComponent.querySelector('#feedback');
+
+          if (emailInput) emailInput.value = '';
+          if (commentInput) commentInput.value = '';
+
+          successMsg.classList.remove('hidden');
+          setTimeout(() => {
+            successMsg.classList.add('opacity-100');
+          }, 10);
+
+          setTimeout(() => {
+            successMsg.classList.remove('opacity-100');
+            setTimeout(() => {
+              successMsg.classList.add('hidden');
+            }, 500);
+          }, 5000);
         });
       }
     });
