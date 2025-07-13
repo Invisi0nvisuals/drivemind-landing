@@ -938,23 +938,28 @@
 				color: #64748b;
 			}
 
-			.form-submit {
-				width: 100%;
-				padding: 15px 30px;
-				background: linear-gradient(135deg, #14b8a6, #06b6d4);
-				color: white;
-				border: none;
-				border-radius: 12px;
-				font-size: 1.1rem;
-				font-weight: 600;
-				cursor: pointer;
-				transition: all 0.3s ease;
-			}
+                        .join-beta-btn {
+                                padding: 0.75rem 1.5rem;
+                                font-size: 1rem;
+                                border-radius: 9999px;
+                                background: linear-gradient(to right, #06b6d4, #3b82f6);
+                                color: white;
+                                font-weight: 600;
+                                transition: all 0.3s ease;
+                                display: inline-block;
+                                margin-top: 1rem;
+                        }
 
-			.form-submit:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
-			}
+                        .join-beta-btn:hover {
+                                background: linear-gradient(to right, #3b82f6, #06b6d4);
+                        }
+
+                        @media (max-width: 768px) {
+                                .join-beta-btn {
+                                        font-size: 0.9rem;
+                                        padding: 0.65rem 1.2rem;
+                                }
+                        }
 
 			.form-success {
 				background: rgba(34, 197, 94, 0.1);
@@ -1610,7 +1615,7 @@
                                 <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
                                   <button>Create ticket</button>
                                 </ab-create-ticket>
-                                <button type="button" class="form-submit" onclick="document.querySelector('ab-create-ticket button').click();">Join Beta Waitlist</button>
+                                <button ab-open="YA4LBEfm8TWHTIQEniPXv" class="join-beta-btn">Join Beta Waitlist</button>
                                 <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">✅ You’ve been added to the waitlist!</div>
 
                                 <script>
