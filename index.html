@@ -1605,15 +1605,16 @@
 					Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
 				</p>
 
-                                <form class="cta-form" id="betaWaitlistForm">
-                                        <div class="form-group">
-                                                <input type="email" class="form-input" placeholder="Enter your email" required id="email" name="email">
-						<button type="submit" class="form-submit">Join Beta Waitlist</button>
-					</div>
-					<div class="form-success" id="formSuccess">
-						🎉 You're in! Check your email for next steps.
-					</div>
-				</form>
+                                <div class="w-full flex justify-center items-center px-4 sm:px-6 md:px-0 mt-6">
+                                  <div class="w-full max-w-md">
+                                    <iframe 
+                                      src="https://hosted.aidbase.ai/embed/ticket-form/YA4LBEfm8TWHTIQEniPXv?userID=public" 
+                                      style="width:100%; height:260px; border:none; border-radius:0.5rem;" 
+                                      title="DriveMind Beta Waitlist Form" 
+                                      loading="lazy">
+                                    </iframe>
+                                  </div>
+                                </div>
 
 				<div class="cta-benefits">
 					<div class="cta-benefit">
@@ -1668,29 +1669,9 @@
 						});
 					}
 				});
-			});
-
-                        // Form submission
-                        document.querySelector('#betaWaitlistForm').addEventListener('submit', async function (e) {
-                          e.preventDefault();
-
-                          const email = document.querySelector('#email').value;
-
-                          await fetch('https://hook.us2.make.com/bsg8xhduws6uynabp249kxpyudvp2dxb', {
-                            method: 'POST',
-                            headers: {
-                              'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                              email: email,
-                              submitted_at: new Date().toISOString()
-                            })
-                          });
-
-                          alert('✅ You\u2019re on the DriveMind waitlist! We\u2019ll be in touch soon.');
                         });
 
-			// Fade in animation on scroll
+                        // Fade in animation on scroll
 			const observerOptions = {
 				threshold: 0.1,
 				rootMargin: '0px 0px -50px 0px'
