@@ -1616,7 +1616,7 @@
                                                 <textarea id="feedback" name="comment" class="form-input" rows="3" placeholder="Any thoughts or feedback? (Optional)"></textarea>
                                         </div>
                                         <button type="submit" class="form-submit">Join Beta Waitlist</button>
-                                        <div id="waitlist-success" class="form-success">✅ You’ve been added to the waitlist!</div>
+                                        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">✅ You’ve been added to the waitlist!</div>
                                   </form>
                                 </ab-create-ticket>
 
@@ -1630,7 +1630,18 @@
                                         if (emailField) emailField.value = '';
                                         if (commentField) commentField.value = '';
                                         const success = document.getElementById('waitlist-success');
-                                        if (success) success.style.display = 'block';
+                                        if (success) {
+                                          success.style.display = 'block';
+                                          success.classList.remove('hidden', 'opacity-0');
+                                          success.classList.add('opacity-100');
+                                          setTimeout(() => {
+                                            success.classList.remove('opacity-100');
+                                            success.classList.add('opacity-0');
+                                            setTimeout(() => {
+                                              success.classList.add('hidden');
+                                            }, 300);
+                                          }, 4000);
+                                        }
                                       });
                                     }
                                   });
