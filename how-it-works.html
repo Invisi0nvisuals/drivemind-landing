@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works | DriveMind</title>
+  <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="navbar.css">
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-[#0f1e2e] text-white">
+  <!-- Global Navigation -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo">Drive<span>Mind</span></a>
+      <nav class="nav-links">
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/demo.html">Demo</a>
+        <a href="#join-beta">Join Beta</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <div id="mobile-menu" class="mobile-nav hidden">
+      <a href="/how-it-works.html">How It Works</a>
+      <a href="/demo.html">Demo</a>
+      <a href="#join-beta">Join Beta</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 pt-24">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs text-sm text-gray-400 mb-4">
+      <a href="/" class="hover:underline">Home</a> &gt; How It Works
+    </div>
+
+    <!-- Intro Header -->
+    <h1 class="text-4xl font-bold mb-4">How DriveMind Works</h1>
+    <p class="text-lg text-gray-300 mb-8">From dashboard panic to instant clarity — here's how we empower drivers.</p>
+
+    <!-- Visual Walkthrough -->
+    <section class="grid md:grid-cols-3 gap-8 mb-12">
+      <div>
+        <h3 class="text-xl font-semibold">Step 1: See a warning light</h3>
+        <p class="text-gray-400">Just like AutoZone’s Fix Finder, we start the moment a light appears on your dash.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">Step 2: Open DriveMind</h3>
+        <p class="text-gray-400">No hardware, no app store download. Just scan the light with your phone.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">Step 3: Get a plain-English report</h3>
+        <p class="text-gray-400">Understand what’s wrong, what it costs, and whether it’s urgent.</p>
+      </div>
+    </section>
+
+    <!-- Key Features Grid -->
+    <section class="bg-[#132534] p-6 rounded-xl shadow-xl space-y-3">
+      <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+      <ul class="list-disc pl-6 text-gray-300 space-y-2">
+        <li>Warning Light Decoder</li>
+        <li>Voice Mode</li>
+        <li>TSB & Recall Alerts</li>
+        <li>Mechanic Message Generator</li>
+        <li>Trip Logger & DriveScore</li>
+      </ul>
+    </section>
+
+    <!-- Waitlist Form (reused) -->
+    <section id="join-beta" class="mt-12">
+      <div class="bg-[#0B1E2D] p-6 rounded-2xl shadow-xl w-full">
+        <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
+          <button>Create ticket</button>
+        </ab-create-ticket>
+        <button ab-open="YA4LBEfm8TWHTIQEniPXv" class="form-submit bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full font-semibold">Join Beta Waitlist</button>
+        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300 mt-4 text-green-400 font-medium">✅ You’ve been added to the waitlist!</div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="bg-[#0f1e2e] text-white py-12 mt-12">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold mb-4">Decode Your Dashboard. No Mechanic Needed.</h2>
+        <p class="text-gray-300 mb-6">Join 1,000+ early users helping shape the future of car diagnostics.</p>
+        <a href="#join-beta" class="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-full text-white font-semibold">Join Beta Waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="navbar.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const ticketEl = document.querySelector('ab-create-ticket');
+    if (ticketEl) {
+      ticketEl.addEventListener('ab:ticket-created', function () {
+        const success = document.getElementById('waitlist-success');
+        if (success) {
+          success.style.display = 'block';
+          success.classList.remove('hidden', 'opacity-0');
+          success.classList.add('opacity-100');
+          setTimeout(() => {
+            success.classList.remove('opacity-100');
+            success.classList.add('opacity-0');
+            setTimeout(() => {
+              success.classList.add('hidden');
+            }, 300);
+          }, 4000);
+        }
+      });
+    }
+  });
+  </script>
+</body>
+</html>
