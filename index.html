@@ -1221,8 +1221,18 @@
 						<span class="stat-label">No jargon</span>
 					</div>
 				</div>
-			</div>
-		</section>
+                        </div>
+                </section>
+                <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+                    const ticketEl = document.querySelector('ab-create-ticket');
+                    if (ticketEl) {
+                      ticketEl.addEventListener('ab:ticket-created', function () {
+                        alert("🎉 You're on the waitlist! Thanks for joining.");
+                      });
+                    }
+                  });
+                </script>
 
 		<!-- Problem Section -->
                 <section class="section">
@@ -1611,56 +1621,43 @@
 		</section>
 
 		<!-- CTA Section -->
-               <section class="cta-section" id="join-beta">
-			<div class="container">
-				<h2 class="cta-title">Be Among the First<br>To Test DriveMind</h2>
-				<p class="cta-subtitle">
-					Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
-				</p>
+               <section class="cta-section py-16 bg-gray-900 text-center text-white" id="join-beta">
+                        <div class="container mx-auto px-4">
+                                <h2 class="text-4xl font-bold mb-4 leading-snug">
+                                        Be Among the First<br>To Test DriveMind
+                                </h2>
+                                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                                        Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
+                                </p>
 
 <!-- Aidbase Waitlist Form Integration -->
 <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
 
-<ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
-  <button>Create ticket</button>
-</ab-create-ticket>
-
-<!-- Button to Trigger Modal -->
-<button 
-  type="button" 
-  class="form-submit join-beta-btn px-6 py-2 text-sm rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold shadow-md transition hover:brightness-110"
-  onclick="document.querySelector('ab-create-ticket button').click();">
-  Join Beta Waitlist
-</button>
-
-<!-- Waitlist Success Message -->
-<div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300 mt-4 text-green-400 text-sm">
-  ✅ You’ve been added to the waitlist!
+<div class="flex justify-center">
+  <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+    <form class="w-full max-w-md bg-gray-800 p-6 rounded-xl shadow-lg space-y-4">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        name="email"
+        required
+        class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      />
+      <textarea
+        placeholder="Any thoughts or feedback? (Optional)"
+        name="message"
+        rows="3"
+        class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+      ></textarea>
+      <button
+        type="submit"
+        class="w-full py-3 rounded-md bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold hover:opacity-90 transition"
+      >
+        Join Beta Waitlist
+      </button>
+    </form>
+  </ab-create-ticket>
 </div>
-
-<!-- Place This Script at the END of the Body or Just Below the Above Block -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const ticketEl = document.querySelector('ab-create-ticket');
-    if (ticketEl) {
-      ticketEl.addEventListener('ab:ticket-created', function () {
-        const success = document.getElementById('waitlist-success');
-        if (success) {
-          success.style.display = 'block';
-          success.classList.remove('hidden', 'opacity-0');
-          success.classList.add('opacity-100');
-          setTimeout(() => {
-            success.classList.remove('opacity-100');
-            success.classList.add('opacity-0');
-            setTimeout(() => {
-              success.classList.add('hidden');
-            }, 300);
-          }, 4000);
-        }
-      });
-    }
-  });
-</script>
 
 				<div class="cta-benefits">
 					<div class="cta-benefit">
