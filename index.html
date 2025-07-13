@@ -1607,28 +1607,17 @@
 
                                 <!-- Aidbase Waitlist Form Integration -->
                                 <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
-                                <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
-                                  <form class="cta-form" onsubmit="event.preventDefault();">
-                                        <div class="form-group">
-                                                <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
-                                        </div>
-                                        <div class="form-group">
-                                                <textarea id="feedback" name="comment" class="form-input" rows="3" placeholder="Any thoughts or feedback? (Optional)"></textarea>
-                                        </div>
-                                        <button type="submit" class="form-submit">Join Beta Waitlist</button>
-                                        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">✅ You’ve been added to the waitlist!</div>
-                                  </form>
+                                <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
+                                  <button>Create ticket</button>
                                 </ab-create-ticket>
+                                <button type="button" class="form-submit" onclick="document.querySelector('ab-create-ticket button').click();">Join Beta Waitlist</button>
+                                <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">✅ You’ve been added to the waitlist!</div>
 
                                 <script>
                                   document.addEventListener('DOMContentLoaded', function () {
                                     const ticketEl = document.querySelector('ab-create-ticket');
                                     if (ticketEl) {
                                       ticketEl.addEventListener('ab:ticket-created', function () {
-                                        const emailField = ticketEl.querySelector('#email');
-                                        const commentField = ticketEl.querySelector('#feedback');
-                                        if (emailField) emailField.value = '';
-                                        if (commentField) commentField.value = '';
                                         const success = document.getElementById('waitlist-success');
                                         if (success) {
                                           success.style.display = 'block';
