@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investor Snapshot | DriveMind</title>
+  <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="navbar.css">
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-[#0f1e2e] text-white">
+  <!-- Global Navigation -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo">Drive<span>Mind</span></a>
+      <nav class="nav-links">
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/demo.html">Demo</a>
+        <a href="#join-beta">Join Beta</a>
+      </nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <div id="mobile-menu" class="mobile-nav hidden">
+      <a href="/how-it-works.html">How It Works</a>
+      <a href="/demo.html">Demo</a>
+      <a href="#join-beta">Join Beta</a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 pt-24 text-center">
+    <h1 class="text-4xl font-bold mb-6">Investor Snapshot</h1>
+    <p class="mb-8">Download our investor deck for a deeper look at DriveMind.</p>
+    <a href="/assets/DriveMind_Investor_Deck.pdf" target="_blank" class="inline-block bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full">Download Investor Deck</a>
+
+    <!-- Waitlist Form (reused) -->
+    <section id="join-beta" class="mt-12 flex justify-center">
+      <div class="bg-[#0B1E2D] p-6 rounded-2xl shadow-xl w-full max-w-md">
+        <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
+          <button>Create ticket</button>
+        </ab-create-ticket>
+        <button ab-open="YA4LBEfm8TWHTIQEniPXv" class="form-submit bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-full font-semibold">Join Beta Waitlist</button>
+        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300 mt-4 text-green-400 font-medium">✅ You’ve been added to the waitlist!</div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="bg-[#0f1e2e] text-white py-12 mt-12">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold mb-4">Decode Your Dashboard. No Mechanic Needed.</h2>
+        <p class="text-gray-300 mb-6">Join 1,000+ early users helping shape the future of car diagnostics.</p>
+        <a href="#join-beta" class="bg-teal-500 hover:bg-teal-600 px-6 py-3 rounded-full text-white font-semibold">Join Beta Waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="navbar.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const ticketEl = document.querySelector('ab-create-ticket');
+    if (ticketEl) {
+      ticketEl.addEventListener('ab:ticket-created', function () {
+        const success = document.getElementById('waitlist-success');
+        if (success) {
+          success.style.display = 'block';
+          success.classList.remove('hidden', 'opacity-0');
+          success.classList.add('opacity-100');
+          setTimeout(() => {
+            success.classList.remove('opacity-100');
+            success.classList.add('opacity-0');
+            setTimeout(() => {
+              success.classList.add('hidden');
+            }, 300);
+          }, 4000);
+        }
+      });
+    }
+  });
+  </script>
+</body>
+</html>
