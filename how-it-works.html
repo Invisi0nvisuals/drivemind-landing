@@ -67,42 +67,79 @@
     </section>
 
     <!-- Waitlist Form (reused) -->
-<section class="cta-section py-20 bg-gray-900 text-white text-center" id="join-beta">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-4">Be Among the First<br>To Test DriveMind</h2>
-    <p class="text-lg mb-6 max-w-2xl mx-auto">
-      Join the exclusive beta and help shape the future of car diagnostics.<br>
-      First 1,000 testers get lifetime Pro access — full features, forever, for free.
+<section class="cta-section" id="join-beta">
+  <div class="container">
+    <h2 class="cta-title">Be Among the First<br>To Test DriveMind</h2>
+    <p class="cta-subtitle">
+      Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
     </p>
-    <h3 class="text-xl font-semibold mt-6 mb-2">Sign Up for Early Access</h3>
-    <p class="text-base mb-6 max-w-xl mx-auto">
-      We’re building something for everyday drivers — not mechanics. Drop your email and we’ll let you know when DriveMind is ready.
-    </p>
+
+    <!-- Aidbase Waitlist Form Integration -->
     <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
-    <div class="max-w-xl mx-auto">
-      <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
-        <form class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email * you@example.com"
-            required
-            class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-          <textarea
-            name="message"
-            placeholder="Any thoughts or feedback? (Optional)"
-            rows="3"
-            class="w-full px-4 py-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          ></textarea>
-          <button
-            type="submit"
-            class="w-full py-3 rounded-md bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold hover:opacity-90 transition"
-          >
-            Join Beta Waitlist
-          </button>
-        </form>
-      </ab-create-ticket>
+
+    <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+      <form class="cta-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <textarea id="feedback" name="comment" class="form-input" rows="3" placeholder="Any thoughts or feedback? (Optional)"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Join Beta Waitlist</button>
+        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">
+          ✅ You’ve been added to the waitlist!
+        </div>
+      </form>
+    </ab-create-ticket>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const ticketEl = document.querySelector('ab-create-ticket');
+        if (ticketEl) {
+          ticketEl.addEventListener('ab:ticket-created', function () {
+            const emailField = ticketEl.querySelector('#email');
+            const commentField = ticketEl.querySelector('#feedback');
+            if (emailField) emailField.value = '';
+            if (commentField) commentField.value = '';
+            const success = document.getElementById('waitlist-success');
+            if (success) {
+              success.style.display = 'block';
+              success.classList.remove('hidden', 'opacity-0');
+              success.classList.add('opacity-100');
+              setTimeout(() => {
+                success.classList.remove('opacity-100');
+                success.classList.add('opacity-0');
+                setTimeout(() => {
+                  success.classList.add('hidden');
+                }, 300);
+              }, 4000);
+            }
+          });
+        }
+      });
+    </script>
+
+    <div class="cta-benefits">
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">🚀</span>
+        <h3 class="cta-benefit-title">First Access</h3>
+        <p class="cta-benefit-description">Be the first to test new features</p>
+      </div>
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">💎</span>
+        <h3 class="cta-benefit-title">Lifetime Pro</h3>
+        <p class="cta-benefit-description">Free Pro features for life</p>
+      </div>
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">🎯</span>
+        <h3 class="cta-benefit-title">Shape the Future</h3>
+        <p class="cta-benefit-description">Your feedback drives development</p>
+      </div>
+    </div>
+
+    <div class="tagline-footer">
+      Built in 72 hours with AI-native tools.<br>
+      First to market, designed to scale, built to exit.
     </div>
   </div>
 </section>
@@ -116,15 +153,5 @@
     </section>
   </main>
   <script src="navbar.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const ticketEl = document.querySelector("ab-create-ticket");
-    if (ticketEl) {
-      ticketEl.addEventListener("ab:ticket-created", () => {
-        alert("🎉 You're on the waitlist! Thanks for signing up.");
-      });
-    }
-  });
-</script>
 </body>
 </html>
