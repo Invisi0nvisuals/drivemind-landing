@@ -934,9 +934,28 @@
 				box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 			}
 
-			.form-input::placeholder {
-				color: #64748b;
-			}
+                        .form-input::placeholder {
+                                color: #64748b;
+                        }
+
+                        .form-submit {
+                                width: 100%;
+                                padding: 15px 30px;
+                                background: linear-gradient(135deg, #14b8a6, #06b6d4);
+                                color: white;
+                                border: none;
+                                border-radius: 12px;
+                                font-size: 1.1rem;
+                                font-weight: 600;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+                        }
+
+                        .form-submit:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
+                        }
 
                         .join-beta-btn {
                                 padding: 0.75rem 1.5rem;
@@ -1221,9 +1240,8 @@
 						<span class="stat-label">No jargon</span>
 					</div>
 				</div>
-			</div>
-		</section>
-
+                        </div>
+                </section>
 		<!-- Problem Section -->
                 <section class="section">
 			<div class="container">
@@ -1611,81 +1629,83 @@
 		</section>
 
 		<!-- CTA Section -->
-               <section class="cta-section" id="join-beta">
-			<div class="container">
-				<h2 class="cta-title">Be Among the First<br>To Test DriveMind</h2>
-				<p class="cta-subtitle">
-					Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
-				</p>
+<section class="cta-section" id="join-beta">
+  <div class="container">
+    <h2 class="cta-title">Be Among the First<br>To Test DriveMind</h2>
+    <p class="cta-subtitle">
+      Join the exclusive beta and help shape the future of car diagnostics. For our first 1,000 testers: Get lifetime Pro access — full features, forever, for free.
+    </p>
 
-<!-- Aidbase Waitlist Form Integration -->
-<script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
+    <!-- Aidbase Waitlist Form Integration -->
+    <script async type="text/javascript" src="https://client.aidbase.ai/create-ticket.ab.js"></script>
 
-<ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public" style="display: none;">
-  <button>Create ticket</button>
-</ab-create-ticket>
+    <ab-create-ticket ticketFormID="YA4LBEfm8TWHTIQEniPXv" userID="public">
+      <form class="cta-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <textarea id="feedback" name="comment" class="form-input" rows="3" placeholder="Any thoughts or feedback? (Optional)"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Join Beta Waitlist</button>
+        <div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300">
+          ✅ You’ve been added to the waitlist!
+        </div>
+      </form>
+    </ab-create-ticket>
 
-<!-- Button to Trigger Modal -->
-<button 
-  type="button" 
-  class="form-submit join-beta-btn px-6 py-2 text-sm rounded-full bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold shadow-md transition hover:brightness-110"
-  onclick="document.querySelector('ab-create-ticket button').click();">
-  Join Beta Waitlist
-</button>
-
-<!-- Waitlist Success Message -->
-<div id="waitlist-success" class="form-success hidden opacity-0 transition-opacity duration-300 mt-4 text-green-400 text-sm">
-  ✅ You’ve been added to the waitlist!
-</div>
-
-<!-- Place This Script at the END of the Body or Just Below the Above Block -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const ticketEl = document.querySelector('ab-create-ticket');
-    if (ticketEl) {
-      ticketEl.addEventListener('ab:ticket-created', function () {
-        const success = document.getElementById('waitlist-success');
-        if (success) {
-          success.style.display = 'block';
-          success.classList.remove('hidden', 'opacity-0');
-          success.classList.add('opacity-100');
-          setTimeout(() => {
-            success.classList.remove('opacity-100');
-            success.classList.add('opacity-0');
-            setTimeout(() => {
-              success.classList.add('hidden');
-            }, 300);
-          }, 4000);
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const ticketEl = document.querySelector('ab-create-ticket');
+        if (ticketEl) {
+          ticketEl.addEventListener('ab:ticket-created', function () {
+            const emailField = ticketEl.querySelector('#email');
+            const commentField = ticketEl.querySelector('#feedback');
+            if (emailField) emailField.value = '';
+            if (commentField) commentField.value = '';
+            const success = document.getElementById('waitlist-success');
+            if (success) {
+              success.style.display = 'block';
+              success.classList.remove('hidden', 'opacity-0');
+              success.classList.add('opacity-100');
+              setTimeout(() => {
+                success.classList.remove('opacity-100');
+                success.classList.add('opacity-0');
+                setTimeout(() => {
+                  success.classList.add('hidden');
+                }, 300);
+              }, 4000);
+            }
+          });
         }
       });
-    }
-  });
-</script>
+    </script>
 
-				<div class="cta-benefits">
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">🚀</span>
-						<h3 class="cta-benefit-title">First Access</h3>
-						<p class="cta-benefit-description">Be the first to test new features</p>
-					</div>
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">💎</span>
-						<h3 class="cta-benefit-title">Lifetime Pro</h3>
-						<p class="cta-benefit-description">Free Pro features for life</p>
-					</div>
-					<div class="cta-benefit">
-						<span class="cta-benefit-icon">🎯</span>
-						<h3 class="cta-benefit-title">Shape the Future</h3>
-						<p class="cta-benefit-description">Your feedback drives development</p>
-					</div>
-				</div>
+    <div class="cta-benefits">
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">🚀</span>
+        <h3 class="cta-benefit-title">First Access</h3>
+        <p class="cta-benefit-description">Be the first to test new features</p>
+      </div>
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">💎</span>
+        <h3 class="cta-benefit-title">Lifetime Pro</h3>
+        <p class="cta-benefit-description">Free Pro features for life</p>
+      </div>
+      <div class="cta-benefit">
+        <span class="cta-benefit-icon">🎯</span>
+        <h3 class="cta-benefit-title">Shape the Future</h3>
+        <p class="cta-benefit-description">Your feedback drives development</p>
+      </div>
+    </div>
 
-				<div class="tagline-footer">
-					Built in 72 hours with AI-native tools.<br>
-					First to market, designed to scale, built to exit.
-				</div>
-			</div>
-		</section>
+    <div class="tagline-footer">
+      Built in 72 hours with AI-native tools.<br>
+      First to market, designed to scale, built to exit.
+    </div>
+  </div>
+</section>
+
 
 		<!-- Footer -->
                 <footer class="footer bg-slate-900 text-gray-400 py-10 border-t border-teal-500/20 text-center text-sm">
